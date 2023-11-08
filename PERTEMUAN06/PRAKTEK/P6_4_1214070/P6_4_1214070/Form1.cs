@@ -133,14 +133,18 @@ namespace P6_4_1214070
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            bool isValid = true; // Menandai apakah semua validasi berhasil
+
             string kelas = "";
             string bahasa = "";
+            string errorMessage = "";
+
             // VALIDASI UNTUK RADIO BUTTON
             if (rb_Regular.Checked == false && rb_Super.Checked == false)
             {
-                //REQUIRED VALIDATOR
+                // REQUIRED VALIDATOR
                 MessageBox.Show("Pilih salah satu kelas (Regular atau Super).", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                isValid = false;
             }
             if (rb_Regular.Checked)
             {
@@ -150,12 +154,13 @@ namespace P6_4_1214070
             {
                 kelas = "Super";
             }
+
             // VALIDASI CHECKBOX
             if (!(cb_Python.Checked || cb_Java.Checked || cb_C.Checked || cb_Php.Checked))
             {
-                //REQUIRED VALIDATOR
+                // REQUIRED VALIDATOR
                 MessageBox.Show("Pilih setidaknya satu bahasa pemrograman.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                isValid = false;
             }
             if (cb_Python.Checked)
             {
@@ -174,20 +179,59 @@ namespace P6_4_1214070
                 bahasa += "PHP, ";
             }
 
-            //MENAMPILKAN SEMUA
-            MessageBox.Show(
-                "Nama: " + txtNama.Text +
-                "\nTanggal Lahir : " + tgl_lahir.Text +
-                "\nJenis Kelamin : " + comboBox1.Text +
-                "\nEmail : " + txtEmail.Text +
-                "\nPilihan Kelas : " + kelas +
-                "\nPilihan Bahasa : " + bahasa +
-                "\nCode Pendaftaran 1 : " + txtCode1.Text +
-                "\nCode Pendaftaran 2 : " + txtCode2.Text ,
-                "Informasi Pendaftaran",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // VALIDASI 
+            if (string.IsNullOrWhiteSpace(txtNama.Text) || 
+                string.IsNullOrWhiteSpace(txtEmail.Text) || 
+                string.IsNullOrWhiteSpace(comboBox1.Text) || 
+                string.IsNullOrWhiteSpace(txtNohp.Text) || 
+                string.IsNullOrWhiteSpace(txtCode1.Text) ||
+                string.IsNullOrWhiteSpace(txtCode2.Text))
+            {
+                // REQUIRED VALIDATOR
+                MessageBox.Show("Ada yang belum di isi!", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                isValid = false;
+            }
+            // Validasi Nama
+            else if (!IsValidName(txtNama.Text))
+            {
+                isValid = false;
+                MessageBox.Show("Input nama dengan benar.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            // VALIDASI EMAIL 
+            else if (!Regex.IsMatch(txtEmail.Text, @"^^[^@\s]+@[^@\s]+(\.[^@\s]+)+$"))
+            {
+                errorMessage += "salah\n";
+            }
+
+
+            // Mengecek semua validasi sebelum menampilkan pesan informasi
+            if (isValid)
+            {
+                MessageBox.Show(
+                    "Nama: " + txtNama.Text +
+                    "\nTanggal Lahir : " + tgl_lahir.Text +
+                    "\nJenis Kelamin : " + comboBox1.Text +
+                    "\nEmail : " + txtEmail.Text +
+                    "\nPilihan Kelas : " + kelas +
+                    "\nPilihan Bahasa : " + bahasa +
+                    "\nCode Pendaftaran 1 : " + txtCode1.Text +
+                    "\nCode Pendaftaran 2 : " + txtCode2.Text,
+                    "Informasi Pendaftaran",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
+
+        // VALIDASI NAMA
+        private bool IsValidName(string name)
+        {
+            return !string.IsNullOrEmpty(name) && name.All(char.IsLetter);
+        }
+        private bool IsValidEmail(string name)
+        {
+            return !string.IsNullOrEmpty(name) && name.All(char.IsLetter);
+        }
+
 
         private void ResetForm()
         {
@@ -253,5 +297,8 @@ namespace P6_4_1214070
         {
             this.Close();
         }
+
+        
+        
     }
 }
