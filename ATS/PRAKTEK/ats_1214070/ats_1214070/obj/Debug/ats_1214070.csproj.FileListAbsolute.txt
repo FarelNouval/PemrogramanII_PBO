@@ -1,0 +1,11 @@
+D:\PemrogramanII_PBO\ATS\PRAKTEK\ats_1214070\ats_1214070\bin\Debug\ats_1214070.exe.config
+D:\PemrogramanII_PBO\ATS\PRAKTEK\ats_1214070\ats_1214070\bin\Debug\ats_1214070.exe
+D:\PemrogramanII_PBO\ATS\PRAKTEK\ats_1214070\ats_1214070\bin\Debug\ats_1214070.pdb
+D:\PemrogramanII_PBO\ATS\PRAKTEK\ats_1214070\ats_1214070\obj\Debug\ats_1214070.csproj.AssemblyReference.cache
+D:\PemrogramanII_PBO\ATS\PRAKTEK\ats_1214070\ats_1214070\obj\Debug\ats_1214070.csproj.SuggestedBindingRedirects.cache
+D:\PemrogramanII_PBO\ATS\PRAKTEK\ats_1214070\ats_1214070\obj\Debug\ats_1214070.Form1.resources
+D:\PemrogramanII_PBO\ATS\PRAKTEK\ats_1214070\ats_1214070\obj\Debug\ats_1214070.Properties.Resources.resources
+D:\PemrogramanII_PBO\ATS\PRAKTEK\ats_1214070\ats_1214070\obj\Debug\ats_1214070.csproj.GenerateResource.cache
+D:\PemrogramanII_PBO\ATS\PRAKTEK\ats_1214070\ats_1214070\obj\Debug\ats_1214070.csproj.CoreCompileInputs.cache
+D:\PemrogramanII_PBO\ATS\PRAKTEK\ats_1214070\ats_1214070\obj\Debug\ats_1214070.exe
+D:\PemrogramanII_PBO\ATS\PRAKTEK\ats_1214070\ats_1214070\obj\Debug\ats_1214070.pdb
