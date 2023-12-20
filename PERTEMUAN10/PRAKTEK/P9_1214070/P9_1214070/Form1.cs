@@ -40,5 +40,10 @@ namespace P9_1214070
         {
 
         }
+
+        private void btnsimpan_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
